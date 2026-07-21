@@ -25,7 +25,7 @@ export default async function FacturationPage() {
     .select("id, numero, date, echeance, statut, facture_items(quantite, prix_unitaire), clients(nom)")
     .order("date", { ascending: false });
 
-  const factures = (data || []) as FactureRow[];
+  const factures = (data || []) as unknown as FactureRow[];
 
   return (
     <div>
