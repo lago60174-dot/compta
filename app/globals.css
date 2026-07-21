@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@theme {
+  /* Neutres — encre (texte, bordures, fonds sombres) */
+  --color-ink-50: #f2f4f5;
+  --color-ink-100: #e4e8ea;
+  --color-ink-200: #c9d0d4;
+  --color-ink-300: #a8b2b8;
+  --color-ink-400: #7c8991;
+  --color-ink-500: #5b6b78;
+  --color-ink-600: #445260;
+  --color-ink-700: #303c48;
+  --color-ink-800: #1c2a38;
+  --color-ink-900: #141c26;
+
+  /* Papier — fonds clairs */
+  --color-paper: #eef1ec;
+  --color-paper-raised: #fbfbf8;
+  --color-line: #c7ccc0;
+  --color-line-soft: #dde1d6;
+
+  /* Accent positif — émeraude (recettes) */
+  --color-emerald-50: #e4efe9;
+  --color-emerald-100: #c7dfd3;
+  --color-emerald-500: #2f8567;
+  --color-emerald-600: #1f6f54;
+  --color-emerald-700: #185a44;
+  --color-emerald-900: #0f3a2c;
+
+  /* Accent négatif — brique (dépenses) */
+  --color-brick-50: #f5e6e1;
+  --color-brick-100: #eacbc0;
+  --color-brick-500: #c0553c;
+  --color-brick-600: #a8442f;
+  --color-brick-700: #863626;
+  --color-brick-900: #562217;
+
+  /* Accent — or (facturation) */
+  --color-gold-50: #f3e9cb;
+  --color-gold-100: #ead9a0;
+  --color-gold-500: #c99b2e;
+  --color-gold-600: #b98a22;
+  --color-gold-700: #93701b;
+  --color-gold-900: #5e4711;
+
+  /* Accent — acier (trésorerie) */
+  --color-steel-50: #e1eaee;
+  --color-steel-100: #c3d5dd;
+  --color-steel-500: #3d6e88;
+  --color-steel-600: #2e5c73;
+  --color-steel-700: #244859;
+  --color-steel-900: #172e39;
+
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-body: var(--font-plex-sans), system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+
+  --radius-card: 0.5rem;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink-800);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  input,
+  select,
+  textarea {
+    font-family: var(--font-body);
+  }
+
+  ::selection {
+    background-color: var(--color-gold-100);
+  }
+}
+
+@layer utilities {
+  .tabular-mono {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Effet "onglet de classeur" — signature visuelle du menu latéral */
+  .nav-tab-flag::after {
+    content: "";
+    position: absolute;
+    right: -9px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 26px;
+    background: var(--tab-color, var(--color-gold-600));
+    border-radius: 0 5px 5px 0;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.18);
+  }
+
+  .stitch-line::after {
+    content: "";
+    position: absolute;
+    right: 14px;
+    top: 20px;
+    bottom: 20px;
+    width: 0;
+    border-left: 1px dashed rgba(241, 240, 232, 0.18);
+  }
+}
