@@ -62,7 +62,7 @@ export default async function DashboardPage() {
   });
 
   const dernieres = tx.slice(0, 6);
-  const facturesEnAttente = (facturesData || []) as FactureAttente[];
+  const facturesEnAttente = (facturesData || []) as unknown as FactureAttente[];
   const totalEnAttente = facturesEnAttente.reduce((s, f) => s + factureTotal(f), 0);
 
   const aujourdHui = capitalize(
