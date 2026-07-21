@@ -26,7 +26,7 @@ export default async function ImprimerFacturePage({ params }: { params: Promise<
   if (!facture) notFound();
 
   const items = ([...((facture.facture_items || []) as ItemRow[])]).sort((a, b) => a.position - b.position);
-  const client = facture.clients as ClientInfo | null;
+  const client = facture.clients as unknown as ClientInfo | null;
   const total = factureTotal({ facture_items: items });
 
   return (
