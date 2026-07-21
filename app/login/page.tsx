@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import LoginForm from "./login-form";
 
 export default function LoginPage() {
@@ -12,7 +13,9 @@ export default function LoginPage() {
           <p className="mt-1 text-sm text-ink-300">Gestion financière de l&apos;entreprise</p>
         </div>
         <div className="rounded-xl border border-ink-700 bg-paper-raised p-6 shadow-xl">
-          <LoginForm />
+          <Suspense fallback={null}>
+            <LoginForm />
+          </Suspense>
         </div>
       </div>
     </div>
