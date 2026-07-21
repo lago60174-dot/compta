@@ -1,12 +1,16 @@
 "use client";
 
 import { useActionState, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { login, signup, type AuthState } from "./actions";
 
 const initialState: AuthState = { error: null, message: null };
 
 export default function LoginForm() {
-  const [tab, setTab] = useState<"login" | "signup">("login");
+  const searchParams = useSearchParams();
+  const [tab, setTab] = useState<"login" | "signup">(
+    searchParams.get("vue") === "creer" ? "signup" : "login"
+  );
   const [loginState, loginAction, loginPending] = useActionState(login, initialState);
   const [signupState, signupAction, signupPending] = useActionState(signup, initialState);
 
